@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,50 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+
+/* signup */
+.btonn{
+  padding: 0px 20px 15px 20px;
+  display: flex;
+  justify-content: center;
+}
+.email{
+  background: rgba(41, 41, 50, 1) !important;
+  color: rgba(146, 146, 157, 1) !important;
+border-radius: 15px !important;
+height: 38px;
+width: 320px !important ;
+padding:11px 15px 11px 15px;
+}
+.min-height-100vh {
+  min-height: 100vh;
+}
+/* Register */
+.bg{
+  background: rgba(28, 28, 36, 1);
+
+}
+.logo{
+  width: 112px !important;
+  height: 32px !important;
+
+}
+.nav{
+  padding:20px !important;
+  display: flex;
+  justify-content: space-between;
+}
+.find{
+  width: 86px;
+height: 38px;
+top: 16px;
+left: 1292px;
+gap: 0px;
+opacity: 0px;
+border-radius: 10px;
+background: rgba(79, 79, 90, 1);
+color: white !important;
+padding: 10px;
 }
