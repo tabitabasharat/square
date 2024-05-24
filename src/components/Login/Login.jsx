@@ -1,195 +1,141 @@
-// import React from 'react'
-// import { Col, Container, Row } from "react-bootstrap";
-// import logoo from "../../Assets/Logo.png";
-// import styled from "styled-components";
-// import { Input } from "@mui/material";
-// import { Stack } from "@mui/material";
+import React from "react";
+import { Container, Row } from "react-bootstrap";
+import logoo from "../../Assets/Logo.png";
+import styled from "styled-components";
+import { Input } from "@mui/material";
+import { Stack } from "@mui/material";
+import googleimg from "../../Assets/Logo Google.png";
+import fbimg from "../../Assets/Fb.png";
+import dot from '../../Assets/Oval.png'
 
-// const Login = () => {
-//   return (
-    
-//   )
-// }
+const Logoimg = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 180px 0px 40px 0px;
+`;
+const Signupdiv = styled.div`
+  width: 360px;
+  height: 365px;
+  top: 269px;
+  left: 620px;
+  gap: 0px;
+  background: rgba(28, 28, 36, 1);
+  border-radius: 10px;
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: column;
+  /* padding-bottom: 240px; */
+`;
+const Signupacnt = styled.h5`
+  font-size: 18px;
+  line-height: 27px;
+  text-align: left;
+  color: #ffff;
+  padding: 30px 67px 29px 67px;
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: center;
+`;
+const Terms = styled.p`
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  color: rgba(250, 250, 251, 1) !important;
+  padding: 15px 45px 20px 50px;
+  margin-bottom: 0px;
+`;
+const Register = styled.button`
+  width: 320px;
+  height: 38px;
+  top: 337px;
+  left: 20px;
+  gap: 0px;
+  opacity: 0px;
+  background: rgba(30, 117, 255, 1);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+  color: rgba(250, 250, 251, 1);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+`;
+const Register1 = styled.button`
+  width: 320px;
+  height: 38px;
+  top: 337px;
+  left: 20px;
+  gap: 0px;
+  opacity: 0px;
+  background: rgba(68, 68, 79, 1) !important;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+  color: rgba(250, 250, 251, 1);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+`;
+const Already = styled.div`
+  background: rgba(41, 41, 50, 1);
+  color: rgba(250, 250, 251, 1);
+  font-size: 12px !important;
+  line-height: 14.06px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0px;
+  width: 360px;
+  height: 48px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+`;
 
-// export default Login
-
-// src/SignUpForm.js
-import React, { useState } from 'react';
-import { Container, Form, Button, Row, Col } from 'react-bootstrap';
-import './styles.css';
-
-const SignUpForm = () => {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    phoneNumber: '',
-    country: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    about: '',
-    agree: false,
-  });
-
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === 'checkbox' ? checked : value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add form submission logic here
-    console.log('Form submitted:', formData);
-  };
-
+const Signup = () => {
   return (
-    <Container className="form-container">
-      <Form onSubmit={handleSubmit}>
-        <Row>
-          <Col>
-            <Form.Group className="mb-3" controlId="formFirstName">
-              <Form.Label>First Name</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="First Name"
-                name="firstName"
-                value={formData.firstName}
-                onChange={handleChange}
-              />
-            </Form.Group>
-          </Col>
-          <Col>
-            <Form.Group className="mb-3" controlId="formLastName">
-              <Form.Label>Last Name</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Last Name"
-                name="lastName"
-                value={formData.lastName}
-                onChange={handleChange}
-              />
-            </Form.Group>
-          </Col>
-        </Row>
+    <Container fluid className="bg-black text white min-height-100vh">
+      <Row>
+        <Logoimg>
+          <img src={logoo} />
+        </Logoimg>
+      </Row>
+      <div className="d-flex justify-content-center align-items-center flex-column position-relative">
+        <Signupdiv>
+          <Signupacnt>Login to your acount</Signupacnt>
+          <div className="btonn">
+            <Input placeholder="Your email" variant="soft" className="email" />
+          </div>
+          <div></div>
+          <Stack className="d-flex align-items-center" spacing={1}>
+            <Register type="submit">Continue</Register>
+            <p className="text-secondary">OR</p>
+            <Register1 type="submit" className="bg-secondary">
+              <img src={googleimg} />
+              Continue with Google
+            </Register1>
+            <Register1 type="submit" className="bg-secondary">
+              <img src={fbimg} />
+              Continue with Google
+            </Register1>
+          </Stack>
+          <hr className="hr" />
+          <p className="text-white d-flex justify-content-center align-items-center">Can’t login?<img src={dot} className="dot mx-1"/>
+Sign up for new user?</p>
+        </Signupdiv>
+        <p className="text-white d-flex justify-content-center align-items-center pt-5">Privacy policy<img src={dot} className="dot mx-1"/>
+        Terms of use</p>
 
-        <Row>
-          <Col xs={3}>
-            <Form.Group className="mb-3" controlId="formPhoneCode">
-              <Form.Label>Code</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="+62"
-                disabled
-              />
-            </Form.Group>
-          </Col>
-          <Col>
-            <Form.Group className="mb-3" controlId="formPhoneNumber">
-              <Form.Label>Phone Number</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Phone Number"
-                name="phoneNumber"
-                value={formData.phoneNumber}
-                onChange={handleChange}
-              />
-            </Form.Group>
-          </Col>
-          <Col>
-            <Form.Group className="mb-3" controlId="formCountry">
-              <Form.Label>Country</Form.Label>
-              <Form.Control
-                as="select"
-                name="country"
-                value={formData.country}
-                onChange={handleChange}
-              >
-                <option>Your Country</option>
-                <option value="Indonesia">Indonesia</option>
-                {/* Add more options as needed */}
-              </Form.Control>
-            </Form.Group>
-          </Col>
-        </Row>
-
-        <Form.Group className="mb-3" controlId="formEmail">
-          <Form.Label>Mail Address</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Mail Address"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
-        </Form.Group>
-
-        <Row>
-          <Col>
-            <Form.Group className="mb-3" controlId="formPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-              />
-            </Form.Group>
-          </Col>
-          <Col>
-            <Form.Group className="mb-3" controlId="formConfirmPassword">
-              <Form.Label>Confirm Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Confirm Password"
-                name="confirmPassword"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-              />
-            </Form.Group>
-          </Col>
-        </Row>
-
-        <Form.Group className="mb-3" controlId="formAbout">
-          <Form.Label>Tell us about yourself</Form.Label>
-          <Form.Control
-            as="textarea"
-            rows={3}
-            placeholder="Hello my name..."
-            name="about"
-            value={formData.about}
-            onChange={handleChange}
-          />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formAgree">
-          <Form.Check
-            type="checkbox"
-            label={<span>I agree to Square's <a href="/cookie-policy">Cookie</a> and <a href="/privacy-policy">Privacy Policy</a>.</span>}
-            name="agree"
-            checked={formData.agree}
-            onChange={handleChange}
-          />
-        </Form.Group>
-
-        <Row>
-          <Col>
-            <Button variant="secondary" className="btn-secondary-custom" type="button">
-              Login
-            </Button>
-          </Col>
-          <Col>
-            <Button variant="primary" className="btn-custom" type="submit">
-              Get Started
-            </Button>
-          </Col>
-        </Row>
-      </Form>
+      </div>
     </Container>
   );
 };
 
-export default SignUpForm;
+export default Signup;

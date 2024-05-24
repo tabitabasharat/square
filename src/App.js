@@ -1,42 +1,63 @@
-import { Button, Col, Container, Nav, Navbar, Row } from "react-bootstrap";
-import "./App.css";
-import logo from "./Assets/Logo.png";
-import { Input } from "@mui/material";
+import React from "react";
+import { Button, CloseButton, Col, Container, Nav, Navbar, Row } from "react-bootstrap";
 import styled from "styled-components";
-import profile from "../../square-signup/src/Assets/Profile.png"
+import "./App.css";
+import bgimg from "../src/Assets/Bitmap.png"
+import RgisHead from '../src/components/Register/RgisHead'
+import Login from '../src/components/Login/Login'
+import Register from '../src/components/Register/Register'
 
-const Createbtn = styled.button`
-width: Hug (149px)px;
-height: Hug (38px)px;
-top: 16px;
-left: 1398px;
-padding: 7px 18px 7px 18px;
-gap: 8px;
-border-radius: 10px;
+const Apply = styled.div`
+width: 560px !important;
+height: 750px !important;
+top: 421px;
+left: 520px;
+gap: 0px;
 opacity: 0px;
-background: rgba(56, 178, 172, 1) !important;
+background: rgba(28, 28, 36, 1);
 color: white;
-`;
-const ButtonsSty = styled.div`
-    display: flex;
-    justify-content: flex-end;
-    width: 89%;
+border-radius: 12px;
+position: absolute;
+top: 300px;
+left: 350px;
+`
+const Applydiv = styled.div`
+width: 100% !important;
+height: 100% !important;
+top: 421px;
+left: 520px;
+gap: 0px;
+opacity: 0px;
+/* background: rgba(28, 28, 36, 1); */
+color: white;
+border-radius: 12px;
 `
 
 function App() {
   return (
     <>
-      <Container fluid className="bg">
-        <div className="nav">
-          <img src={logo} className="logo" />
-          <ButtonsSty>
-            <input placeholder="Find" variant="soft" className="find" />
-            <Createbtn className="ms-4 me-1"> + Create Link</Createbtn>
+    <RgisHead/>
+    {/* <Login/> */}
+    <Register/>
+      {/* <Container
+        fluid
+        className="bg-black min-height-100vh d-flex position-relative flex-column px-0"
+      >
+    <div className="position-relative">
+      <div className="position-absolute">
+        <h3 className="text-center">Welcome to the <br/>
+Professional Community</h3>
+      <p>Find thousand opportunities and ready to level up your careers.</p>
+      </div>
+      <img src={bgimg} className="px-0 bgimg"/> 
+    </div>
+    <Applydiv>
+    <Apply>
 
-          </ButtonsSty>
-          <img src={profile}/>
-        </div>
-      </Container>
+      fdsfd
+      </Apply>
+    </Applydiv>
+      </Container> */}
     </>
   );
 }
