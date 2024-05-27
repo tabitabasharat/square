@@ -7,6 +7,7 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import RgisHead from "./RgisHead";
 import { countries } from "./RgisData";
+import { grey } from "@mui/material/colors";
 
 const Signup1div = styled.div`
   width: 560px;
@@ -47,10 +48,8 @@ const Get = styled.button`
   text-align: center;
 `;
 
-function App() {
-
-  
-  return (
+  function Register(){
+    return(
     <>
       <RgisHead />
       {/* Register */}
@@ -63,48 +62,12 @@ function App() {
             </p>
           </Col>
         </Row>
-        <div className="d-flex justify-content-center position-relative">
+        <div className="d-flex justify-content-center position-relative divs">
           <Signup1div>
-            {/* <Signupacnt>Sign Up to your account</Signupacnt>
-            <div className="btonn">
-              <Input
-                placeholder="Your email"
-                variant="soft"
-                className="email"
-              />
-            </div>
-            <div className="btonn">
-              <Input placeholder="Your name" variant="soft" className="email" />
-            </div>
-            <div className="btonn">
-              <Input
-                placeholder="Create Password"
-                variant="soft"
-                className="email"
-              />
-            </div>
-            <div>
-              <Terms>
-                By signing up, you confirm that you’ve read
-                <br />
-                and accepted our
-                <span className="text-primary"> User Notice </span>and{" "}
-                <span className="text-primary">Privacy Policy.</span>
-              </Terms>
-            </div>
-            <Stack className="d-flex align-items-center" spacing={1}>
-              <Register type="submit">Register</Register>
-              <p className="text-secondary">OR</p>
-              <Register1 type="submit" className="bg-secondary">
-                <img src={googleimg} />
-                Continue with Google
-              </Register1> */}
-            {/* </Stack> */}
-            <div className="regis-div bg-white" >
+            <div className="regis-div bg-dark">
               <Row>
                 <Col>
                   <TextField
-                 
                     margin="normal"
                     required
                     fullWidth
@@ -113,23 +76,24 @@ function App() {
                     type="text"
                     id="Fisrt-Name"
                     autoComplete="current-password"
-                    inputProps={{ style: { color: "red" } }}
-                    InputLabelProps={{ style: { color: "red" } }}
-                  
+                    inputProps={{ style: { background: (146, 146, 157, 1) } }}
+                    InputLabelProps={{
+                      style: { color:"grey" },
+                    }}
                     sx={{
                       "& .MuiOutlinedInput-notchedOutline": {
-                        border: "2px dotted brown"
+                        border: "2px solid grey",
                       },
-            
+
                       "& .MuiOutlinedInput-root": {
                         "&.Mui-focused fieldset": {
-                          border: "2px solid red"
-                        }
+                          border: "2px solid grey",
+                        },
                       },
                       "input::placeholder": {
-                        color: "orange",
-                        opacity: 1
-                      }
+                        color: grey,
+                        opacity: 1,
+                      },
                     }}
                   />
                 </Col>
@@ -143,6 +107,25 @@ function App() {
                     type="text"
                     id="Last-Name"
                     autoComplete="current-password"
+                    inputProps={{ style: { background: (146, 146, 157, 1) } }}
+                    InputLabelProps={{
+                      style: { color:"grey" },
+                    }}
+                    sx={{
+                      "& .MuiOutlinedInput-notchedOutline": {
+                        border: "2px solid grey",
+                      },
+
+                      "& .MuiOutlinedInput-root": {
+                        "&.Mui-focused fieldset": {
+                          border: "2px solid grey",
+                        },
+                      },
+                      "input::placeholder": {
+                        color: grey,
+                        opacity: 1,
+                      },
+                    }}
                   />
                 </Col>
                 <Row>
@@ -156,6 +139,25 @@ function App() {
                       type="number"
                       id="number"
                       autoComplete="current-password"
+                      inputProps={{ style: { background: (146, 146, 157, 1) } }}
+                      InputLabelProps={{
+                        style: {color:"grey" },
+                      }}
+                      sx={{
+                        "& .MuiOutlinedInput-notchedOutline": {
+                          border: "2px solid grey",
+                        },
+  
+                        "& .MuiOutlinedInput-root": {
+                          "&.Mui-focused fieldset": {
+                            border: "2px solid grey",
+                          },
+                        },
+                        "input::placeholder": {
+                          color: grey,
+                          opacity: 1,
+                        },
+                      }}
                     />
                   </Col>
                   <Col>
@@ -188,6 +190,8 @@ function App() {
                           inputProps={{
                             ...params.inputProps,
                             autoComplete: "new-password", // disable autocomplete and autofill
+                            
+                            
                           }}
                         />
                       )}
@@ -204,7 +208,25 @@ function App() {
                   label="Mail Address"
                   name="email"
                   autoComplete="email"
-                  autoFocus
+                  inputProps={{ style: { background: (146, 146, 157, 1) } }}
+                  InputLabelProps={{
+                    style: { color:"grey" },
+                  }}
+                  sx={{
+                    "& .MuiOutlinedInput-notchedOutline": {
+                      border: "2px solid grey",
+                    },
+
+                    "& .MuiOutlinedInput-root": {
+                      "&.Mui-focused fieldset": {
+                        border: "2px solid grey",
+                      },
+                    },
+                    "input::placeholder": {
+                      color: grey,
+                      opacity: 1,
+                    },
+                  }}
                 />
                 <Row>
                   <Col>
@@ -217,6 +239,25 @@ function App() {
                       type="password"
                       id="password"
                       autoComplete="current-password"
+                      inputProps={{ style: { background: (146, 146, 157, 1) } }}
+                      InputLabelProps={{
+                        style: { color:"grey" },
+                      }}
+                      sx={{
+                        "& .MuiOutlinedInput-notchedOutline": {
+                          border: "2px solid grey",
+                        },
+  
+                        "& .MuiOutlinedInput-root": {
+                          "&.Mui-focused fieldset": {
+                            border: "2px solid grey",
+                          },
+                        },
+                        "input::placeholder": {
+                          color: grey,
+                          opacity: 1,
+                        },
+                      }}
                     />
                   </Col>
                   <Col>
@@ -229,21 +270,62 @@ function App() {
                       type="password"
                       id="Confirm-password"
                       autoComplete="current-password"
+                      inputProps={{ style: { background: (146, 146, 157, 1) } }}
+                      InputLabelProps={{
+                        style: { color:"grey"},
+                      }}
+                      sx={{
+                        "& .MuiOutlinedInput-notchedOutline": {
+                          border: "2px solid grey",
+                        },
+  
+                        "& .MuiOutlinedInput-root": {
+                          "&.Mui-focused fieldset": {
+                            border: "2px solid grey",
+                          },
+                        },
+                        "input::placeholder": {
+                          color: grey,
+                          opacity: 1,
+                        },
+                      }}
                     />
                   </Col>
                 </Row>
                 <Col>
-                  <p>Tell us about yourself</p>
+                <p className="text-secondary   m-0 mt-4">Tell us about yourself</p>
+
                   <TextField
                     margin="normal"
                     required
                     fullWidth
                     label="hello..."
+                    inputProps={{ style: { background: (146, 146, 157, 1) } }}
+                    InputLabelProps={{
+                      style: {color:"grey"},
+                    }}
+                    sx={{
+                      "& .MuiOutlinedInput-notchedOutline": {
+                        border: "2px solid grey",
+                      },
+
+                      "& .MuiOutlinedInput-root": {
+                        "&.Mui-focused fieldset": {
+                          border: "2px solid grey",
+                        },
+                      },
+                      "input::placeholder": {
+                        color: grey,
+                        opacity: 1,
+                      },
+                    }}
                   />
                 </Col>
                 <FormControlLabel
+                
                   control={<Checkbox value="remember" color="primary" />}
-                  label="Remember me"
+                  label={`I agree to Square’s Cookie and Privacy Policy.`}
+                  className="text-white"
                 />
               </Box>
 
@@ -261,4 +343,4 @@ function App() {
   );
 }
 
-export default App;
+export default Register;

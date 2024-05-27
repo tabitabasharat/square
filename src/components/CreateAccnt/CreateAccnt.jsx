@@ -1,11 +1,11 @@
 import React from "react";
 import {Container,Row } from "react-bootstrap";
 import styled from "styled-components";
-// import "./App.css";
 import logo from "../../Assets/Logo.png";
 import teamwork from "../../Assets/Team Work.png";
 import { Input } from "@mui/material";
 import Close from "../../Assets/Close.png"
+import { useNavigate } from "react-router-dom";
 
 const Col1 = styled.div`
   width: 1180px !important;
@@ -69,11 +69,13 @@ const Get = styled.button`
 `;
 
 function CreateAccnt() {
+  const navigate = useNavigate();
+  // const
   return (
     <>
       <Container
         fluid
-        className="bg-black min-height-100vh d-flex justify-content-center align-items-center"
+        className="bg-black min-height-100vh div-height d-flex justify-content-center align-items-center"
       >
         <Col1>
           <Row>

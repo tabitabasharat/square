@@ -12,7 +12,7 @@ const Logoimg = styled.div`
   padding: 180px 0px 40px 0px;
 `;
 const Signupdiv = styled.div`
-  width: 360px;
+  width: 360px  ;
   height: 515px;
   top: 269px;
   left: 620px;
@@ -111,7 +111,7 @@ const Signup = () => {
           <div className="btonn">
             <Input placeholder="Your email" variant="soft" className="email" />
           </div>
-          <div className="btonn">
+          <div className="btonn-signup">
             <Input placeholder="Your name" variant="soft" className="email" />
           </div>
           <div className="btonn">

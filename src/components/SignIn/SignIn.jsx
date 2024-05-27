@@ -1,11 +1,12 @@
-import React from "react";
-import { Col, Container, Nav, Navbar, Row } from "react-bootstrap";
+// import React, { useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
 import styled from "styled-components";
 import { Checkbox, FormControlLabel } from "@mui/material";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import RgisHead from "../../components/Register/RgisHead";
-
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Signup1div = styled.div`
   width: 560px;
@@ -29,16 +30,28 @@ const Get = styled.button`
   text-align: center;
 `;
 
-function App() {
+function SignIn() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const signinn = () => {
+    if (email && password) {
+      navigate("/Loginacnt");
+    } else {
+      alert("please enter email and password");
+    }
+  };
+
   return (
     <>
       <RgisHead />
-      <Container fluid className="bg-black text white min-height-100vh">
+      <Container fluid className="bg-black text-white min-height-100vh">
         <Row>
           <Col className="register">
             <h3 className="text-white text-center">Sign In</h3>
             <p className="text-secondary text-center">
-              Just sign in if you have an account in here. Enjoy our Website{" "}
+              Just sign in if you have an account in here. Enjoy our Website
             </p>
           </Col>
         </Row>
@@ -55,6 +68,9 @@ function App() {
                   name="email"
                   autoComplete="email"
                   autoFocus
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
                 />
                 <TextField
                   margin="normal"
@@ -65,6 +81,9 @@ function App() {
                   type="password"
                   id="password"
                   autoComplete="current-password"
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
                 />
                 <Row>
                   <Col>
@@ -82,16 +101,18 @@ function App() {
 
               <Row>
                 <Col className="gap-2 d-flex justify-content-center">
-                  <Get>Login</Get>
+                  <Get onClick={signinn}>Login</Get>
                 </Col>
               </Row>
             </div>
           </Signup1div>
         </div>
-        <p className="text-white d-flex justify-content-center p-5">Already have an Square account? Log in</p>
+        <p className="text-white d-flex justify-content-center p-5">
+          Already have a Square account? Log in
+        </p>
       </Container>
     </>
   );
 }
 
-export default App;
+export default SignIn;

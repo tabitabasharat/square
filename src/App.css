@@ -54,24 +54,81 @@ height: 3px;
 
 /* signup */
 .btonn {
+  padding: 21px;
+  display: flex;
+  justify-content: center;
+}
+.btonn-signup {
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+}
+.btonn1 {
   padding: 0px 20px 15px 20px;
   display: flex;
   justify-content: center;
+  margin-top: 50px;
+  width: 250px;
+}
+.btonn11 {
+  padding: 0px 20px 15px 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  width: 130px;
+}
+.btonn12 {
+  padding: 0px 20px 15px 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  width: 113px;
+}
+.div-height{
+  padding-top: 200px;
+}
+.btonn11 {
+  padding: 0px 20px 15px 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  /* width: ; */
+}
+.btonn111 {
+  padding: 0px 20px 15px 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  width:100% ;
 }
 .email {
   background: rgba(41, 41, 50, 1) !important;
   color: rgba(146, 146, 157, 1) !important;
   border-radius: 15px !important;
+  /* height: 38px;
+  width: 320px !important ; */
+  padding: 11px 15px 11px 15px;
+  width: 320px !important;
+height: 38px !important;
+}
+.emaill {
+  /* background: rgba(41, 41, 50, 1) !important; */
+  color: rgba(146, 146, 157, 1) !important;
+  border-radius: 15px !important;
   height: 38px;
   width: 320px !important ;
-  padding: 11px 15px 11px 15px;
+  padding:0px;
 }
 .min-height-100vh {
-  min-height: 100vh;
+  min-height: 100vh !important;
 }
 /* Register head*/
 .bg {
   background: rgba(28, 28, 36, 1) !important;
+}
+.divs{
+  padding-bottom:120px !important ;
+  border-radius: 12px;
 }
 .logo {
   width: 112px !important;
@@ -122,6 +179,7 @@ margin-bottom: 0px
 }
 .regis-div{
   padding: 30px !important;
+  border-radius: 12px;
 }
 /* create accnt */
 
@@ -137,8 +195,12 @@ margin-bottom: 0px
 }
 .position-absolute{
   position: absolute !important;
-  top: -5px;
-  left: 565px;
+  left: 557px !important;
+  top: -5px !important;
+}
+.bg-black{
+  padding-bottom: 700px;
+
 }
 /* home page */
 .bgimg{

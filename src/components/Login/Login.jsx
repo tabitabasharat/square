@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import logoo from "../../Assets/Logo.png";
 import styled from "styled-components";
@@ -6,7 +6,8 @@ import { Input } from "@mui/material";
 import { Stack } from "@mui/material";
 import googleimg from "../../Assets/Logo Google.png";
 import fbimg from "../../Assets/Fb.png";
-import dot from '../../Assets/Oval.png'
+import dot from "../../Assets/Oval.png";
+import { useNavigate } from "react-router-dom";
 
 const Logoimg = styled.div`
   display: flex;
@@ -15,7 +16,7 @@ const Logoimg = styled.div`
 `;
 const Signupdiv = styled.div`
   width: 360px;
-  height: 365px;
+  /* height: 365px; */
   top: 269px;
   left: 620px;
   gap: 0px;
@@ -99,7 +100,18 @@ const Already = styled.div`
   border-bottom-right-radius: 12px;
 `;
 
-const Signup = () => {
+const Login = () => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState();
+
+  const loginss = () => {
+    if (email) {
+      navigate("/SignIn");
+    } else {
+      console.log("please enter email");
+    }
+  };
+
   return (
     <Container fluid className="bg-black text white min-height-100vh">
       <Row>
@@ -111,11 +123,25 @@ const Signup = () => {
         <Signupdiv>
           <Signupacnt>Login to your acount</Signupacnt>
           <div className="btonn">
-            <Input placeholder="Your email" variant="soft" className="email" />
+            <Input
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              placeholder="Your email"
+              variant="soft"
+              className="email"
+            />
           </div>
           <div></div>
           <Stack className="d-flex align-items-center" spacing={1}>
-            <Register type="submit">Continue</Register>
+            <Register
+              type="submit"
+              onClick={() => {
+                loginss();
+              }}
+            >
+              Continue
+            </Register>
             <p className="text-secondary">OR</p>
             <Register1 type="submit" className="bg-secondary">
               <img src={googleimg} />
@@ -127,15 +153,20 @@ const Signup = () => {
             </Register1>
           </Stack>
           <hr className="hr" />
-          <p className="text-white d-flex justify-content-center align-items-center">Can’t login?<img src={dot} className="dot mx-1"/>
-Sign up for new user?</p>
+          <p className="text-white d-flex justify-content-center align-items-center">
+            Can’t login?
+            <img src={dot} className="dot mx-1" />
+            Sign up for new user?
+          </p>
         </Signupdiv>
-        <p className="text-white d-flex justify-content-center align-items-center pt-5">Privacy policy<img src={dot} className="dot mx-1"/>
-        Terms of use</p>
-
+        <p className="text-white d-flex justify-content-center align-items-center pt-5">
+          Privacy policy
+          <img src={dot} className="dot mx-1" />
+          Terms of use
+        </p>
       </div>
     </Container>
   );
 };
 
-export default Signup;
+export default Login;

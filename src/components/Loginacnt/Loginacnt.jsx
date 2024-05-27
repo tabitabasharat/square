@@ -4,11 +4,12 @@ import styled from "styled-components";
 import logo from "../../Assets/Logo.png";
 import teamwork from "../../Assets/Team Work.png";
 import { Input } from "@mui/material";
-import Close from "../..//Assets/Close.png"
+import Close from "../..//Assets/Close.png";
 import { Checkbox, FormControlLabel } from "@mui/material";
-import gog from "../../Assets/Logo Google.png"
-import fblog from "../../Assets/F_icon.png"
-
+import gog from "../../Assets/Logo Google.png";
+import fblog from "../../Assets/F_icon.png";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Col1 = styled.div`
   width: 1180px !important;
@@ -88,14 +89,14 @@ const Gog = styled.button`
   gap: 10px;
 `;
 const Fb = styled.button`
- display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
   width: 100% !important;
   height: 48px !important;
   border-radius: 12px;
-background: rgba(30, 117, 255, 1);
+  background: rgba(30, 117, 255, 1);
   color: white;
   font-size: 12px;
   font-weight: 600;
@@ -104,18 +105,26 @@ background: rgba(30, 117, 255, 1);
   margin: 0px 0px 50px 0px;
 `;
 const Space = styled.span`
-letter-spacing: 0.2rem;
-`
+  letter-spacing: 0.2rem;
+`;
 function Loginacnt() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const signinn = () => {
+    if (email && password) {
+      navigate("/Opportunities");
+    } else {
+      alert("please enter email and password");
+    }
+  };
+
   return (
     <>
-    {/* <Signup/> */}
-    {/* <SignIn/> */}
-    {/* <Register/> */}
-    {/* <Auth/> */}
       <Container
         fluid
-        className="bg-black min-height-100vh d-flex justify-content-center align-items-center"
+        className="bg-black min-height-100vh div-height d-flex justify-content-center align-items-center"
       >
         <Col1>
           <Row>
@@ -135,12 +144,19 @@ function Loginacnt() {
             </Side1>
             <Side2>
               <div className="position-absolute">
-                <img src={Close}/>
-                </div>
-                <div>
+                <img src={Close} />
+              </div>
+              <div>
                 <h3 className="text-white">Log In to Your Account </h3>
                 <div className="email1">
-                  <Input placeholder="Email or Username" variant="soft" className="email" />
+                  <Input
+                    placeholder="Email or Username"
+                    variant="soft"
+                    className="email"
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
+                  />
                 </div>
                 <div className="email11">
                   <Input
@@ -148,12 +164,15 @@ function Loginacnt() {
                     type="password"
                     variant="soft"
                     className="email"
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
                   />
                 </div>
                 <Row>
                   <Col>
                     <FormControlLabel
-                      control={<Checkbox value="remember" color="warning"  />}
+                      control={<Checkbox value="remember" color="warning" />}
                       label="Remember me"
                       className="text-secondary"
                     />
@@ -162,11 +181,22 @@ function Loginacnt() {
                     <p className="mb-0 text-secondary">Forgot Password</p>
                   </Col>
                 </Row>
-                <Get>Login</Get>
-                <p className="text-secondary gap-2 d-flex justify-content-center"><Space>--------------------</Space> Instant Login<Space>----------------------</Space></p>
+                <Get onClick={signinn}>Login </Get>
+                <p className="text-secondary gap-2 d-flex justify-content-center">
+                  <Space>--------------------</Space> Instant Login
+                  <Space>----------------------</Space>
+                </p>
 
-                <Gog> <img src={gog}/>Continue with Google</Gog>
-                <Fb> <img src={fblog}/>Continue with Facebook</Fb>
+                <Gog>
+                  {" "}
+                  <img src={gog} />
+                  Continue with Google
+                </Gog>
+                <Fb>
+                  {" "}
+                  <img src={fblog} />
+                  Continue with Facebook
+                </Fb>
               </div>
             </Side2>
           </Row>

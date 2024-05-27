@@ -39,4 +39,4 @@ const RgisHead = () => {
   )
 }
 
-export default RgisHead
+export default RgisHead;
