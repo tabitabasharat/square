@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {Container,Row } from "react-bootstrap";
 import styled from "styled-components";
 import logo from "../../Assets/Logo.png";
@@ -70,7 +70,20 @@ const Get = styled.button`
 
 function CreateAccnt() {
   const navigate = useNavigate();
-  // const
+  const [fullname, setFullname] = useState();
+  const [email,setEmail] = useState();
+  const [url,setUrl] = useState();
+  const [pass, setPass] = useState();
+
+  const freeaccnts=()=>{
+    if(fullname && email && pass && url){
+      {navigate("/Dreamjob")}
+    }else{
+      alert("please enter info");
+
+    }
+  }
+
   return (
     <>
       <Container
@@ -104,13 +117,18 @@ function CreateAccnt() {
                     placeholder="Full Name"
                     variant="soft"
                     className="email"
+                    onChange={(e)=>setFullname(e.target.value)}
                   />
                 </div>
                 <div className="email1">
-                  <Input placeholder="Email Address" variant="soft" className="email" />
+                  <Input placeholder="Email Address" variant="soft" className="email"
+                    onChange={(e)=>setEmail(e.target.value)}
+                   />
                 </div>
                 <div className="email1">
-                  <Input placeholder="Business URL" variant="soft" className="email"/>
+                  <Input placeholder="Business URL" variant="soft" className="email"
+                    onChange={(e)=>setUrl(e.target.value)}
+                  />
                 </div>
                 <div className="email11">
                   <Input
@@ -118,9 +136,10 @@ function CreateAccnt() {
                     type="password"
                     variant="soft"
                     className="email"
+                    onChange={(e)=>setPass(e.target.value)}
                   />
                 </div>
-                <Get>Create an account</Get>
+                <Get onClick={()=>(freeaccnts())}>Create an account</Get>
               </div>
             </Side2>
           </Row>

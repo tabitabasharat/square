@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import logoo from "../../Assets/Logo.png";
 import styled from "styled-components";
 import { Input } from "@mui/material";
 import { Stack } from "@mui/material";
 import googleimg from "../../Assets/Logo Google.png";
+import { useNavigate } from "react-router-dom";
 
 const Logoimg = styled.div`
   display: flex;
@@ -12,7 +13,7 @@ const Logoimg = styled.div`
   padding: 180px 0px 40px 0px;
 `;
 const Signupdiv = styled.div`
-  width: 360px  ;
+  width: 360px;
   height: 515px;
   top: 269px;
   left: 620px;
@@ -98,6 +99,21 @@ const Already = styled.div`
 `;
 
 const Signup = () => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+
+  const rgis = () => {
+    if (email && name && password) {
+      {
+        navigate("/Register");
+      }
+    } else {
+      console.log("plase enter the above info first");
+    }
+  };
+
   return (
     <Container fluid className="bg-black text white min-height-100vh">
       <Row>
@@ -109,16 +125,35 @@ const Signup = () => {
         <Signupdiv>
           <Signupacnt>Sign Up to your account</Signupacnt>
           <div className="btonn">
-            <Input placeholder="Your email" variant="soft" className="email" />
+            <Input
+              placeholder="Your email"
+              variant="soft"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              className="email"
+            />
           </div>
           <div className="btonn-signup">
-            <Input placeholder="Your name" variant="soft" className="email" />
+            <Input
+              placeholder="Your name"
+              variant="soft"
+              className="email"
+              type="text"
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+            />
           </div>
           <div className="btonn">
             <Input
               placeholder="Create Password"
               variant="soft"
               className="email"
+              type="password"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
             />
           </div>
           <div>
@@ -131,7 +166,14 @@ const Signup = () => {
             </Terms>
           </div>
           <Stack className="d-flex align-items-center" spacing={1}>
-            <Register type="submit">Register</Register>
+            <Register
+              type="submit"
+              onClick={() => {
+                rgis();
+              }}
+            >
+              Register
+            </Register>
             <p className="text-secondary">OR</p>
             <Register1 type="submit" className="bg-secondary">
               <img src={googleimg} />
@@ -142,7 +184,6 @@ const Signup = () => {
             <p className="mb-0">Already have an Square account? Log in</p>
           </Already>
         </Signupdiv>
-
       </div>
     </Container>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Col, Container, Nav, Navbar, Row } from "react-bootstrap";
 import styled from "styled-components";
 import { Stack, Checkbox, FormControlLabel } from "@mui/material";
@@ -8,6 +8,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 import RgisHead from "./RgisHead";
 import { countries } from "./RgisData";
 import { grey } from "@mui/material/colors";
+import { redirect, useNavigate } from "react-router-dom";
 
 const Signup1div = styled.div`
   width: 560px;
@@ -48,8 +49,26 @@ const Get = styled.button`
   text-align: center;
 `;
 
-  function Register(){
-    return(
+function Register() {
+  const navigate = useNavigate();
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [number, setNumber] = useState("");
+  // const [country, setCountry] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confrimpass, setConfrimpass] = useState("");
+ 
+  const registration = () => {
+    if (firstname && lastname && number && email && password && confrimpass) {
+      
+      {navigate("/CreateAccnt")};
+    } else {
+      alert("plase enter your info");
+    }
+  };
+
+  return (
     <>
       <RgisHead />
       {/* Register */}
@@ -78,7 +97,7 @@ const Get = styled.button`
                     autoComplete="current-password"
                     inputProps={{ style: { background: (146, 146, 157, 1) } }}
                     InputLabelProps={{
-                      style: { color:"grey" },
+                      style: { color: "grey" },
                     }}
                     sx={{
                       "& .MuiOutlinedInput-notchedOutline": {
@@ -95,6 +114,7 @@ const Get = styled.button`
                         opacity: 1,
                       },
                     }}
+                    onChange={(e) => {setFirstname(e.target.value);}}
                   />
                 </Col>
                 <Col>
@@ -109,7 +129,8 @@ const Get = styled.button`
                     autoComplete="current-password"
                     inputProps={{ style: { background: (146, 146, 157, 1) } }}
                     InputLabelProps={{
-                      style: { color:"grey" },
+                      style: { color: "grey" },
+                      
                     }}
                     sx={{
                       "& .MuiOutlinedInput-notchedOutline": {
@@ -126,6 +147,8 @@ const Get = styled.button`
                         opacity: 1,
                       },
                     }}
+                    onChange={(e)=>setLastname(e.target.value)}
+
                   />
                 </Col>
                 <Row>
@@ -141,13 +164,13 @@ const Get = styled.button`
                       autoComplete="current-password"
                       inputProps={{ style: { background: (146, 146, 157, 1) } }}
                       InputLabelProps={{
-                        style: {color:"grey" },
+                        style: { color: "grey" },
                       }}
                       sx={{
                         "& .MuiOutlinedInput-notchedOutline": {
                           border: "2px solid grey",
                         },
-  
+
                         "& .MuiOutlinedInput-root": {
                           "&.Mui-focused fieldset": {
                             border: "2px solid grey",
@@ -158,9 +181,11 @@ const Get = styled.button`
                           opacity: 1,
                         },
                       }}
+                      onChange={(e)=>setNumber(e.target.value)}
+
                     />
                   </Col>
-                  <Col>
+                  <Col className="d-flex justify-content-center align-items-center">
                     <Autocomplete
                       id="country-select-demo"
                       sx={{ width: 300 }}
@@ -190,11 +215,11 @@ const Get = styled.button`
                           inputProps={{
                             ...params.inputProps,
                             autoComplete: "new-password", // disable autocomplete and autofill
-                            
-                            
                           }}
                         />
                       )}
+                      // onChange={(e)=>setCountry(e.target.value)}
+
                     />
                   </Col>
                 </Row>
@@ -210,7 +235,7 @@ const Get = styled.button`
                   autoComplete="email"
                   inputProps={{ style: { background: (146, 146, 157, 1) } }}
                   InputLabelProps={{
-                    style: { color:"grey" },
+                    style: { color: "grey" },
                   }}
                   sx={{
                     "& .MuiOutlinedInput-notchedOutline": {
@@ -227,6 +252,8 @@ const Get = styled.button`
                       opacity: 1,
                     },
                   }}
+                  onChange={(e)=>setEmail(e.target.value)}
+
                 />
                 <Row>
                   <Col>
@@ -241,13 +268,13 @@ const Get = styled.button`
                       autoComplete="current-password"
                       inputProps={{ style: { background: (146, 146, 157, 1) } }}
                       InputLabelProps={{
-                        style: { color:"grey" },
+                        style: { color: "grey" },
                       }}
                       sx={{
                         "& .MuiOutlinedInput-notchedOutline": {
                           border: "2px solid grey",
                         },
-  
+
                         "& .MuiOutlinedInput-root": {
                           "&.Mui-focused fieldset": {
                             border: "2px solid grey",
@@ -258,6 +285,8 @@ const Get = styled.button`
                           opacity: 1,
                         },
                       }}
+                      onChange={(e)=>setPassword(e.target.value)}
+
                     />
                   </Col>
                   <Col>
@@ -272,13 +301,13 @@ const Get = styled.button`
                       autoComplete="current-password"
                       inputProps={{ style: { background: (146, 146, 157, 1) } }}
                       InputLabelProps={{
-                        style: { color:"grey"},
+                        style: { color: "grey" },
                       }}
                       sx={{
                         "& .MuiOutlinedInput-notchedOutline": {
                           border: "2px solid grey",
                         },
-  
+
                         "& .MuiOutlinedInput-root": {
                           "&.Mui-focused fieldset": {
                             border: "2px solid grey",
@@ -289,11 +318,18 @@ const Get = styled.button`
                           opacity: 1,
                         },
                       }}
+                    onChange={(e)=>setConfrimpass(e.target.value)}
+
+                      // onChange={(e) => {
+                      //   setConfrimpass(e.target.value);
+                      // }}
                     />
                   </Col>
                 </Row>
                 <Col>
-                <p className="text-secondary   m-0 mt-4">Tell us about yourself</p>
+                  <p className="text-secondary   m-0 mt-4">
+                    Tell us about yourself
+                  </p>
 
                   <TextField
                     margin="normal"
@@ -302,7 +338,7 @@ const Get = styled.button`
                     label="hello..."
                     inputProps={{ style: { background: (146, 146, 157, 1) } }}
                     InputLabelProps={{
-                      style: {color:"grey"},
+                      style: { color: "grey" },
                     }}
                     sx={{
                       "& .MuiOutlinedInput-notchedOutline": {
@@ -319,10 +355,10 @@ const Get = styled.button`
                         opacity: 1,
                       },
                     }}
+                    
                   />
                 </Col>
                 <FormControlLabel
-                
                   control={<Checkbox value="remember" color="primary" />}
                   label={`I agree to Square’s Cookie and Privacy Policy.`}
                   className="text-white"
@@ -332,7 +368,13 @@ const Get = styled.button`
               <Row>
                 <Col className="gap-2 d-flex justify-content-center">
                   <Login>Login</Login>
-                  <Get>Get Started</Get>
+                  <Get
+                  type="submit"
+                    onClick={() =>{registration();
+                    }}
+                  >
+                    Get Started
+                  </Get>
                 </Col>
               </Row>
             </div>

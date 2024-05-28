@@ -67,9 +67,6 @@ justify-content: center;
 function Dreamjob() {
   return (
     <>
-      {/* <RgisHead/> */}
-      {/* <Login/> */}
-      {/* <Register/> */}
       <Container
         fluid
         className="bg-black min-height-100vh d-flex flex-column px-0"
