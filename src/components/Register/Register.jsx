@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Nav, Navbar, Row } from "react-bootstrap";
 import styled from "styled-components";
 import { Stack, Checkbox, FormControlLabel } from "@mui/material";
@@ -54,20 +54,31 @@ function Register() {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [number, setNumber] = useState("");
-  // const [country, setCountry] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confrimpass, setConfrimpass] = useState("");
- 
-  const registration = () => {
-    if (firstname && lastname && number && email && password && confrimpass) {
-      
-      {navigate("/CreateAccnt")};
+  const [formValid, setFormValid] = useState(false);
+
+
+  useEffect (()=>{
+    if (email && firstname && lastname && number && confrimpass && password) {
+      setFormValid(true);
+      console.log("value updated")
     } else {
-      alert("plase enter your info");
+      setFormValid(false);
+      console.log("mount value")
+    }
+  }, [email, firstname, lastname, number, confrimpass, password]);
+
+  const handleRegister = () => {
+    if (formValid) {
+      navigate("/Register");
+      console.log("unmount.");
+
+    } else {
+      console.log("unmount.");
     }
   };
-
   return (
     <>
       <RgisHead />
@@ -370,7 +381,7 @@ function Register() {
                   <Login>Login</Login>
                   <Get
                   type="submit"
-                    onClick={() =>{registration();
+                    onClick={() =>{handleRegister()
                     }}
                   >
                     Get Started

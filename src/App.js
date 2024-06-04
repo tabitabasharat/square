@@ -16,23 +16,23 @@ function App() {
   return (
     <>
   
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/SignIn" element={<SignIn />} />
           <Route path="/Loginacnt" element={<Loginacnt />} />
           <Route path="/Opportunities" element={<Opportunities />} />
         </Routes>
-      </BrowserRouter> */}
+      </BrowserRouter>
 
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Routes>
           <Route path="/" element={<Signup />} />
           <Route path="/Register" element={<Register />} />
           <Route path="/CreateAccnt" element={<CreateAccnt/>} />
           <Route path="/Dreamjob" element={<Dreamjob />} />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </>
   );
 }

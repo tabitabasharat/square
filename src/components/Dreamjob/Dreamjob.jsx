@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Button,
   CloseButton,
@@ -62,8 +62,7 @@ color: rgba(146, 146, 157, 1);
 display: flex;
 justify-content: center;
 
- `
-
+`
 function Dreamjob() {
   return (
     <>

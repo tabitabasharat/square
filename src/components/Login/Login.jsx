@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import logoo from "../../Assets/Logo.png";
 import styled from "styled-components";
@@ -103,10 +103,23 @@ const Already = styled.div`
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState();
+  const [FromValidate,setFromValidate] = useState(false);
+useEffect (()=>{
+  if(email){
+    setFromValidate(true)
+    console.log('update')
+  }
+  else{
+    setFromValidate(false)
+    console.log('mount')
+
+  }
+})
 
   const loginss = () => {
-    if (email) {
+    if (FromValidate) {
       navigate("/SignIn");
+      console.log('unmount')
     } else {
       console.log("please enter email");
     }

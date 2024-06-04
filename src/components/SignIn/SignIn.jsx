@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import RgisHead from "../../components/Register/RgisHead";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Signup1div = styled.div`
   width: 560px;
@@ -33,11 +33,22 @@ const Get = styled.button`
 function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [FormValidate,setFormValidate] = useState(false)
   const navigate = useNavigate();
+useEffect (()=>{
+  if(email && password){
+    setFormValidate(true)
+    console.log('updatevalue')
+  }else{
+    setFormValidate(false)
+    console.log('mount')
+}
+})
 
   const signinn = () => {
-    if (email && password) {
+    if (FormValidate) {
       navigate("/Loginacnt");
+      console.log('unmount')
     } else {
       alert("please enter email and password");
     }

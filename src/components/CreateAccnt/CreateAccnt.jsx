@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {Container,Row } from "react-bootstrap";
 import styled from "styled-components";
 import logo from "../../Assets/Logo.png";
@@ -74,9 +74,17 @@ function CreateAccnt() {
   const [email,setEmail] = useState();
   const [url,setUrl] = useState();
   const [pass, setPass] = useState();
+  const [validation,setValidation] = useState(false);
+
+useEffect(()=>{
+  if(fullname && email && pass && url ){
+    setValidation(true);
+}else{
+  setValidation(false)
+}},[fullname, email,url,pass,])
 
   const freeaccnts=()=>{
-    if(fullname && email && pass && url){
+    if(validation){
       {navigate("/Dreamjob")}
     }else{
       alert("please enter info");

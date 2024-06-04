@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Col, Container, Nav, Navbar, Row } from "react-bootstrap";
 import styled from "styled-components";
 import logo from "../../Assets/Logo.png";
@@ -110,11 +110,22 @@ const Space = styled.span`
 function Loginacnt() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [FormValidate,setFormValidate] = useState(false)
   const navigate = useNavigate();
+useEffect (()=>{
+  if (email && password){
+    setFormValidate(true)
+    console.log('update')
+  }else{
+    setFormValidate(false)
+    console.log('mount')
+  }
+})
 
   const signinn = () => {
-    if (email && password) {
+    if (FormValidate) {
       navigate("/Opportunities");
+      console.log('unmount')
     } else {
       alert("please enter email and password");
     }

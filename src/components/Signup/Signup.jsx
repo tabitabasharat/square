@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+// 
+
+
+import React, { useState, useEffect } from "react";
 import { Container, Row } from "react-bootstrap";
 import logoo from "../../Assets/Logo.png";
 import styled from "styled-components";
@@ -103,22 +106,36 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [formValid, setFormValid] = useState(false);
 
-  const rgis = () => {
+  useEffect(() => {
+    // Validation logic
     if (email && name && password) {
-      {
-        navigate("/Register");
-      }
+      setFormValid(true);
+      console.log("value updated")
     } else {
-      console.log("plase enter the above info first");
+      setFormValid(false);
+      console.log("mount value")
+    }
+  }, [email, name, password]);
+
+  const handleRegister = () => {
+    if (formValid) {
+      navigate("/Register");
+      console.log("unmount.");
+
+    } else {
+      console.log("unmount.");
     }
   };
+
+  // console.log("My email is",email)
 
   return (
     <Container fluid className="bg-black text white min-height-100vh">
       <Row>
         <Logoimg>
-          <img src={logoo} />
+          <img src={logoo} alt="Logo" />
         </Logoimg>
       </Row>
       <div className="d-flex justify-content-center position-relative">
@@ -128,9 +145,7 @@ const Signup = () => {
             <Input
               placeholder="Your email"
               variant="soft"
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
+              onChange={(e) => setEmail(e.target.value)}
               className="email"
             />
           </div>
@@ -140,9 +155,7 @@ const Signup = () => {
               variant="soft"
               className="email"
               type="text"
-              onChange={(e) => {
-                setName(e.target.value);
-              }}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div className="btonn">
@@ -151,9 +164,7 @@ const Signup = () => {
               variant="soft"
               className="email"
               type="password"
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div>
@@ -166,17 +177,12 @@ const Signup = () => {
             </Terms>
           </div>
           <Stack className="d-flex align-items-center" spacing={1}>
-            <Register
-              type="submit"
-              onClick={() => {
-                rgis();
-              }}
-            >
+            <Register type="submit" onClick={handleRegister} disabled={!formValid}>
               Register
             </Register>
             <p className="text-secondary">OR</p>
             <Register1 type="submit" className="bg-secondary">
-              <img src={googleimg} />
+              <img src={googleimg} alt="Google Logo" />
               Continue with Google
             </Register1>
           </Stack>
